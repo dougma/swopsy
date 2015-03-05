@@ -108,12 +108,13 @@ namespace swopsy
 
     class SwappingProxy
     {
-        public static void HandleBundle(Bundle b, bool reverse)
+        public static void HandleBundle(Bundle b, bool reverse, TimeSpan requestDelay)
         {
             var cs = reverse ? b.Connections.Reverse() : b.Connections;
             foreach (var c in cs)
             {
-                Proxy.Do(c.Context).Wait();
+                var task = Proxy.Do(c.Context);
+                task.Wait(requestDelay);
             }
         }
     }

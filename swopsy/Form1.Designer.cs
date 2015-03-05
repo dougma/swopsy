@@ -38,10 +38,14 @@
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statisticBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelPort = new System.Windows.Forms.Label();
+            this.checkBoxActive = new System.Windows.Forms.CheckBox();
+            this.labelRequestWait = new System.Windows.Forms.Label();
+            this.trackBarRequestWait = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDelay)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statisticBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRequestWait)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBoxReverse
@@ -49,7 +53,7 @@
             this.checkBoxReverse.AutoSize = true;
             this.checkBoxReverse.Checked = true;
             this.checkBoxReverse.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxReverse.Location = new System.Drawing.Point(13, 13);
+            this.checkBoxReverse.Location = new System.Drawing.Point(12, 34);
             this.checkBoxReverse.Name = "checkBoxReverse";
             this.checkBoxReverse.Size = new System.Drawing.Size(61, 17);
             this.checkBoxReverse.TabIndex = 0;
@@ -59,7 +63,7 @@
             // trackBarDelay
             // 
             this.trackBarDelay.LargeChange = 1000;
-            this.trackBarDelay.Location = new System.Drawing.Point(12, 73);
+            this.trackBarDelay.Location = new System.Drawing.Point(10, 86);
             this.trackBarDelay.Maximum = 5000;
             this.trackBarDelay.Name = "trackBarDelay";
             this.trackBarDelay.Size = new System.Drawing.Size(259, 45);
@@ -69,18 +73,18 @@
             // labelDelay
             // 
             this.labelDelay.AutoSize = true;
-            this.labelDelay.Location = new System.Drawing.Point(12, 54);
+            this.labelDelay.Location = new System.Drawing.Point(12, 70);
             this.labelDelay.Name = "labelDelay";
-            this.labelDelay.Size = new System.Drawing.Size(107, 13);
+            this.labelDelay.Size = new System.Drawing.Size(67, 13);
             this.labelDelay.TabIndex = 2;
-            this.labelDelay.Text = "delay per bundle (ms)";
+            this.labelDelay.Text = "bundle delay";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 124);
+            this.groupBox1.Location = new System.Drawing.Point(9, 203);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 125);
+            this.groupBox1.Size = new System.Drawing.Size(260, 148);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "stats";
@@ -100,7 +104,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(254, 106);
+            this.dataGridView1.Size = new System.Drawing.Size(254, 129);
             this.dataGridView1.TabIndex = 0;
             // 
             // statDataGridViewTextBoxColumn
@@ -130,11 +134,45 @@
             this.labelPort.TabIndex = 4;
             this.labelPort.Text = "port 8765";
             // 
+            // checkBoxActive
+            // 
+            this.checkBoxActive.AutoSize = true;
+            this.checkBoxActive.Checked = true;
+            this.checkBoxActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxActive.Location = new System.Drawing.Point(12, 9);
+            this.checkBoxActive.Name = "checkBoxActive";
+            this.checkBoxActive.Size = new System.Drawing.Size(55, 17);
+            this.checkBoxActive.TabIndex = 5;
+            this.checkBoxActive.Text = "active";
+            this.checkBoxActive.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.labelRequestWait.AutoSize = true;
+            this.labelRequestWait.Location = new System.Drawing.Point(12, 134);
+            this.labelRequestWait.Name = "label1";
+            this.labelRequestWait.Size = new System.Drawing.Size(104, 13);
+            this.labelRequestWait.TabIndex = 6;
+            this.labelRequestWait.Text = "max wait per request";
+            // 
+            // trackBarRequestWait
+            // 
+            this.trackBarRequestWait.LargeChange = 200;
+            this.trackBarRequestWait.Location = new System.Drawing.Point(10, 152);
+            this.trackBarRequestWait.Maximum = 1000;
+            this.trackBarRequestWait.Name = "trackBarRequestWait";
+            this.trackBarRequestWait.Size = new System.Drawing.Size(259, 45);
+            this.trackBarRequestWait.TabIndex = 7;
+            this.trackBarRequestWait.TickFrequency = 200;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 363);
+            this.Controls.Add(this.trackBarRequestWait);
+            this.Controls.Add(this.labelRequestWait);
+            this.Controls.Add(this.checkBoxActive);
             this.Controls.Add(this.labelPort);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelDelay);
@@ -146,6 +184,7 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statisticBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRequestWait)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,6 +201,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource statisticBindingSource;
+        private System.Windows.Forms.CheckBox checkBoxActive;
+        private System.Windows.Forms.Label labelRequestWait;
+        private System.Windows.Forms.TrackBar trackBarRequestWait;
     }
 }
 
